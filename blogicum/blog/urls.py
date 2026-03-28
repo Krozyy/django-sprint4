@@ -6,7 +6,7 @@ app_name = 'blog'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('posts/<int:pk>/',
+    path('posts/<int:post_id>/',
          views.post_detail,
          name='post_detail'),
     path('category/<slug:category_slug>/',
@@ -19,15 +19,15 @@ urlpatterns = [
           views.edit_profile,
           name='edit_profile'),
      path('edit_profile/',
-         views.edit_profile_red,
+         views.edit_profile,
          name='edit_profile'),
      path('create/',
           views.create_post,
           name='create_post'),
-     path('posts/<int:pk>/edit/',
+     path('posts/<int:post_id>/edit/',
           views.edit_post,
           name='edit_post'),
-     path('posts/<int:pk>/delete/',
+     path('posts/<int:post_id>/delete/',
           views.delete_post,
           name='delete_post'),
      path('posts/<int:post_id>/comment/', 
@@ -39,7 +39,8 @@ urlpatterns = [
     path('posts/<int:post_id>/delete_comment/<int:comment_id>/',
          views.delete_comment,
          name='delete_comment'),
-     path('profile/<str:username>/password/', 
+     
+     path('password/', 
          views.password_change, 
-         name='password_change'),
+         name='password'),
 ]
